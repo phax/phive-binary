@@ -119,7 +119,12 @@
           <instructions>
             <Automatic-Module-Name>com.helger.phive.binary</Automatic-Module-Name>
             <Import-Package>!javax.annotation.*,*</Import-Package>
-            <Export-Package>com.helger.phive.binary</Export-Package>
+            <Export-Package>
+              com.helger.phive.binary,
+              com.helger.phive.binary.impl
+            </Export-Package>
+            <!-- The latter one has precedence -->
+            <Include-Resource>{maven-resources},phive-binary-version.properties=target/classes/phive-binary-version.properties</Include-Resource>
           </instructions>
         </configuration>
       </plugin>

@@ -71,7 +71,7 @@ public interface IFileFormatDescriptor extends IHasName
   @Nonnull
   @Nonempty
   @ReturnsMutableCopy
-  ICommonsMap <EContentDetectionMode, IContentDetector> getAllContentDetectors ();
+  ICommonsMap <EPhiveContentDetectionMode, IPhiveContentDetector> getAllContentDetectors ();
 
   /**
    * Find the best matching content detector, based on the provided detection
@@ -84,5 +84,25 @@ public interface IFileFormatDescriptor extends IHasName
    *         not contain a detector for the provided modes.
    */
   @Nullable
-  IContentDetector findContentDetector (@Nullable EContentDetectionMode... aModes);
+  IPhiveContentDetector findContentDetector (@Nullable EPhiveContentDetectionMode... aModes);
+
+  /**
+   * @return The first provided content detector, with speed prioritized over
+   *         accuracy. May be <code>null</code>.
+   */
+  @Nullable
+  default IPhiveContentDetector getContentDetectorFavourSpeed ()
+  {
+    return findContentDetector (EPhiveContentDetectionMode.LEADING_BYTES, EPhiveContentDetectionMode.FULL_PARSE);
+  }
+
+  /**
+   * @return The first provided content detector, with accuracy prioritized over
+   *         speed. May be <code>null</code>.
+   */
+  @Nullable
+  default IPhiveContentDetector getContentDetectorFavourAccuracy ()
+  {
+    return findContentDetector (EPhiveContentDetectionMode.FULL_PARSE, EPhiveContentDetectionMode.LEADING_BYTES);
+  }
 }

@@ -25,8 +25,8 @@ import com.helger.commons.collection.impl.CommonsArrayList;
 import com.helger.commons.collection.impl.CommonsHashMap;
 import com.helger.commons.mime.CMimeType;
 import com.helger.phive.binary.AbstractFileFormatDescriptor;
-import com.helger.phive.binary.EContentDetectionMode;
-import com.helger.phive.binary.IContentDetector;
+import com.helger.phive.binary.EPhiveContentDetectionMode;
+import com.helger.phive.binary.IPhiveContentDetector;
 
 /**
  * File format descriptor for PDF
@@ -38,10 +38,10 @@ public class FileFormatDescriptorPDF extends AbstractFileFormatDescriptor
   private static final byte [] MIME_ID_PDF = { '%', 'P', 'D', 'F' };
 
   @Nonnull
-  private static Map <EContentDetectionMode, IContentDetector> _getContentDetectors ()
+  private static Map <EPhiveContentDetectionMode, IPhiveContentDetector> _getContentDetectors ()
   {
-    final Map <EContentDetectionMode, IContentDetector> ret = new CommonsHashMap <> ();
-    ret.put (EContentDetectionMode.LEADING_BYTES, data -> ArrayHelper.startsWith (data, MIME_ID_PDF));
+    final Map <EPhiveContentDetectionMode, IPhiveContentDetector> ret = new CommonsHashMap <> ();
+    ret.put (EPhiveContentDetectionMode.LEADING_BYTES, data -> ArrayHelper.startsWith (data, MIME_ID_PDF));
     return ret;
   }
 

@@ -14,25 +14,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.helger.phive.binary.impl;
+package com.helger.phive.binary;
 
 import javax.annotation.Nonnull;
 
-import com.helger.commons.annotation.IsSPIImplementation;
-import com.helger.phive.binary.IFileFormatRegistrarSPI;
-import com.helger.phive.binary.IFileFormatRegistry;
-
 /**
- * The default implementation of {@link IFileFormatRegistrarSPI}
+ * A single content detector interface
  *
  * @author Philip Helger
  */
-@IsSPIImplementation
-public class FileFormatRegistrarDefaultSPI implements IFileFormatRegistrarSPI
+@FunctionalInterface
+public interface IPhiveContentDetector
 {
-  public void registerFileFormats (@Nonnull final IFileFormatRegistry aRegistry)
-  {
-    aRegistry.registerFileFormat (new FileFormatDescriptorCSV ());
-    aRegistry.registerFileFormat (new FileFormatDescriptorPDF ());
-  }
+  /**
+   * Check if the provided data matches the requirements.
+   *
+   * @param aData
+   *        the data to check
+   * @return <code>true</code> if the expected content was detected,
+   *         <code>false</code> if not.
+   */
+  boolean matchesContent (@Nonnull byte [] aData);
 }

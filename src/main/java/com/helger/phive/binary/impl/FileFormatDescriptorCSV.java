@@ -14,25 +14,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.helger.phive.binary;
+package com.helger.phive.binary.impl;
 
-import javax.annotation.Nonnull;
+import com.helger.commons.collection.impl.CommonsArrayList;
+import com.helger.commons.collection.impl.CommonsHashMap;
+import com.helger.commons.mime.CMimeType;
+import com.helger.phive.binary.AbstractFileFormatDescriptor;
 
 /**
- * A single content detector interface
+ * File format descriptor for CSV
  *
  * @author Philip Helger
  */
-@FunctionalInterface
-public interface IContentDetector
+public class FileFormatDescriptorCSV extends AbstractFileFormatDescriptor
 {
-  /**
-   * Check if the provided data matches the requirements.
-   *
-   * @param aData
-   *        the data to check
-   * @return <code>true</code> if the expected content was detected,
-   *         <code>false</code> if not.
-   */
-  boolean matchesContent (@Nonnull byte [] aData);
+  public FileFormatDescriptorCSV ()
+  {
+    super ("Comma-separated values",
+           "CSV",
+           new CommonsArrayList <> ("csv"),
+           new CommonsArrayList <> (CMimeType.TEXT_CSV.getAsStringWithoutParameters ()),
+           new CommonsHashMap <> ());
+  }
 }

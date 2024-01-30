@@ -31,9 +31,9 @@ import com.helger.commons.string.StringHelper;
  * @author Philip Helger
  */
 @Immutable
-public final class FileFormatHelper
+public final class PhiveBinaryHelper
 {
-  private FileFormatHelper ()
+  private PhiveBinaryHelper ()
   {}
 
   /**

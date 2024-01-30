@@ -19,9 +19,12 @@ package com.helger.phive.binary;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import java.nio.charset.StandardCharsets;
+
 import org.junit.Test;
 
 import com.helger.commons.mime.CMimeType;
+import com.helger.phive.binary.impl.FileFormatDescriptorCSV;
 import com.helger.phive.binary.impl.FileFormatDescriptorPDF;
 
 /**
@@ -32,11 +35,31 @@ import com.helger.phive.binary.impl.FileFormatDescriptorPDF;
 public class FileFormatRegistryTest
 {
   @Test
+  public void testCSV ()
+  {
+    final FileFormatRegistry aReg = FileFormatRegistry.getInstance ();
+    assertTrue (aReg.getAllFileFormatDescriptors ().containsAnyValue (FileFormatDescriptorCSV.class::isInstance));
+    assertNotNull (aReg.getFileFormatDescriptorByFileExtension ("csv"));
+    assertNotNull (aReg.getFileFormatDescriptorByMimeType (CMimeType.TEXT_CSV));
+  }
+
+  @Test
   public void testPDF ()
   {
     final FileFormatRegistry aReg = FileFormatRegistry.getInstance ();
     assertTrue (aReg.getAllFileFormatDescriptors ().containsAnyValue (FileFormatDescriptorPDF.class::isInstance));
     assertNotNull (aReg.getFileFormatDescriptorByFileExtension ("pdf"));
-    assertNotNull (aReg.getFileFormatDescriptorByMimeType (CMimeType.APPLICATION_PDF.getAsString ()));
+    assertNotNull (aReg.getFileFormatDescriptorByMimeType (CMimeType.APPLICATION_PDF));
+  }
+
+  @Test
+  public void testDetermination ()
+  {
+    final byte [] aDummyPayload = "%PDF-1.6blafoo".getBytes (StandardCharsets.ISO_8859_1);
+
+    final FileFormatRegistry aReg = FileFormatRegistry.getInstance ();
+    final IPhiveContentDetector aContentDetector = aReg.getFileFormatDescriptorByMimeType (CMimeType.APPLICATION_PDF)
+                                                  .getContentDetectorFavourSpeed ();
+    assertTrue (aContentDetector.matchesContent (aDummyPayload));
   }
 }

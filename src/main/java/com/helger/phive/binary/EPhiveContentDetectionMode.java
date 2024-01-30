@@ -28,7 +28,7 @@ import com.helger.commons.lang.EnumHelper;
  *
  * @author Philip Helger
  */
-public enum EContentDetectionMode implements IHasID <String>
+public enum EPhiveContentDetectionMode implements IHasID <String>
 {
   /**
    * The file format is detected based on the first n bytes of the content. This
@@ -45,7 +45,7 @@ public enum EContentDetectionMode implements IHasID <String>
 
   private final String m_sID;
 
-  EContentDetectionMode (@Nonnull @Nonempty final String sID)
+  EPhiveContentDetectionMode (@Nonnull @Nonempty final String sID)
   {
     m_sID = sID;
   }
@@ -58,8 +58,8 @@ public enum EContentDetectionMode implements IHasID <String>
   }
 
   @Nullable
-  public static EContentDetectionMode getFromIDOrNull (@Nullable final String sID)
+  public static EPhiveContentDetectionMode getFromIDOrNull (@Nullable final String sID)
   {
-    return EnumHelper.getFromIDOrNull (EContentDetectionMode.class, sID);
+    return EnumHelper.getFromIDOrNull (EPhiveContentDetectionMode.class, sID);
   }
 }

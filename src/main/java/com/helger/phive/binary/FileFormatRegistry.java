@@ -136,7 +136,7 @@ public class FileFormatRegistry implements IFileFormatRegistry
   @Nullable
   public final IFileFormatDescriptor getFileFormatDescriptorByFileExtension (@Nullable final String sFileExt)
   {
-    if (FileFormatHelper.isValidFileExtension (sFileExt))
+    if (PhiveBinaryHelper.isValidFileExtension (sFileExt))
       return m_aRWLock.readLockedGet ( () -> m_aFileExtMap.get (sFileExt));
     return null;
   }
@@ -144,7 +144,7 @@ public class FileFormatRegistry implements IFileFormatRegistry
   @Nullable
   public final IFileFormatDescriptor getFileFormatDescriptorByMimeType (@Nullable final String sMimeType)
   {
-    if (FileFormatHelper.isValidMimeType (sMimeType))
+    if (PhiveBinaryHelper.isValidMimeType (sMimeType))
       return m_aRWLock.readLockedGet ( () -> m_aMimeTypeMap.get (sMimeType));
     return null;
   }

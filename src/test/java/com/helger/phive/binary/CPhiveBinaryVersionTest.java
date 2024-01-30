@@ -14,25 +14,28 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.helger.phive.binary.impl;
+package com.helger.phive.binary;
 
-import javax.annotation.Nonnull;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
 
-import com.helger.commons.annotation.IsSPIImplementation;
-import com.helger.phive.binary.IFileFormatRegistrarSPI;
-import com.helger.phive.binary.IFileFormatRegistry;
+import org.junit.Test;
 
 /**
- * The default implementation of {@link IFileFormatRegistrarSPI}
+ * Test class for class {@link CPhiveBinaryVersion}.
  *
  * @author Philip Helger
  */
-@IsSPIImplementation
-public class FileFormatRegistrarDefaultSPI implements IFileFormatRegistrarSPI
+public final class CPhiveBinaryVersionTest
 {
-  public void registerFileFormats (@Nonnull final IFileFormatRegistry aRegistry)
+  @Test
+  public void testBasic ()
   {
-    aRegistry.registerFileFormat (new FileFormatDescriptorCSV ());
-    aRegistry.registerFileFormat (new FileFormatDescriptorPDF ());
+    assertNotEquals ("undefined", CPhiveBinaryVersion.BUILD_VERSION);
+    assertNotEquals ("undefined", CPhiveBinaryVersion.BUILD_TIMESTAMP);
+
+    // Check variable resolution
+    assertFalse (CPhiveBinaryVersion.BUILD_VERSION.contains ("${"));
+    assertFalse (CPhiveBinaryVersion.BUILD_TIMESTAMP.contains ("${"));
   }
 }

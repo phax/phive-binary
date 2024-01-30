@@ -21,6 +21,7 @@ import javax.annotation.Nullable;
 
 import com.helger.commons.annotation.ReturnsMutableCopy;
 import com.helger.commons.collection.impl.ICommonsOrderedMap;
+import com.helger.commons.mime.IMimeType;
 import com.helger.commons.state.ESuccess;
 
 /**
@@ -30,9 +31,23 @@ import com.helger.commons.state.ESuccess;
  */
 public interface IFileFormatRegistry
 {
+  /**
+   * Register a new file format descriptor into the registry. Implementations
+   * must check the uniqueness of file extensions and MIME types.
+   *
+   * @param aDescriptor
+   *        The descriptor to be registered. May not be <code>null</code>.
+   * @return {@link ESuccess#SUCCESS} in case the new file format was
+   *         registered, {@link ESuccess#FAILURE} if not. Never
+   *         <code>null</code>.
+   */
   @Nonnull
   ESuccess registerFileFormat (@Nonnull IFileFormatDescriptor aDescriptor);
 
+  /**
+   * @return A map with all registered file format descriptors, with the file
+   *         format name as the key.
+   */
   @Nonnull
   @ReturnsMutableCopy
   ICommonsOrderedMap <String, IFileFormatDescriptor> getAllFileFormatDescriptors ();
@@ -42,4 +57,10 @@ public interface IFileFormatRegistry
 
   @Nullable
   IFileFormatDescriptor getFileFormatDescriptorByMimeType (@Nullable String sMimeType);
+
+  @Nullable
+  default IFileFormatDescriptor getFileFormatDescriptorByMimeType (@Nullable final IMimeType aMimeType)
+  {
+    return aMimeType == null ? null : getFileFormatDescriptorByMimeType (aMimeType.getAsStringWithoutParameters ());
+  }
 }

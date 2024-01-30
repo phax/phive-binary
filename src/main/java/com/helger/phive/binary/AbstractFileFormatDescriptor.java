@@ -44,26 +44,26 @@ public abstract class AbstractFileFormatDescriptor implements IFileFormatDescrip
   private final String m_sShortName;
   private final ICommonsSet <String> m_aAllowedFileExtensions;
   private final ICommonsSet <String> m_aAllowedMimeTypes;
-  private final ICommonsMap <EContentDetectionMode, IContentDetector> m_aContentDetectors;
+  private final ICommonsMap <EPhiveContentDetectionMode, IPhiveContentDetector> m_aContentDetectors;
 
   protected AbstractFileFormatDescriptor (@Nonnull @Nonempty final String sName,
                                           @Nullable final String sShortName,
                                           @Nonnull @Nonempty final Collection <String> aAllowedFileExtensions,
                                           @Nonnull @Nonempty final Collection <String> aAllowedMimeTypes,
-                                          @Nonnull @Nonempty final Map <EContentDetectionMode, IContentDetector> aContentDetectors)
+                                          @Nonnull final Map <EPhiveContentDetectionMode, IPhiveContentDetector> aContentDetectors)
   {
     if (ValueEnforcer.isEnabled ())
     {
       ValueEnforcer.notEmpty (sName, "Name");
       ValueEnforcer.notEmpty (aAllowedFileExtensions, "AllowedFileExtensions");
       for (final String sFileExtension : aAllowedFileExtensions)
-        ValueEnforcer.isTrue ( () -> FileFormatHelper.isValidFileExtension (sFileExtension),
+        ValueEnforcer.isTrue ( () -> PhiveBinaryHelper.isValidFileExtension (sFileExtension),
                                () -> "File Extension '" + sFileExtension + "' is invalid");
       ValueEnforcer.notEmpty (aAllowedMimeTypes, "AllowedMimeTypes");
       for (final String sMimeType : aAllowedMimeTypes)
-        ValueEnforcer.isTrue ( () -> FileFormatHelper.isValidMimeType (sMimeType),
+        ValueEnforcer.isTrue ( () -> PhiveBinaryHelper.isValidMimeType (sMimeType),
                                () -> "MIME Type '" + sMimeType + "' is invalid");
-      ValueEnforcer.notEmptyNoNullValue (aContentDetectors, "ContentDetectors");
+      ValueEnforcer.notNullNoNullValue (aContentDetectors, "ContentDetectors");
     }
 
     m_sName = sName;
@@ -120,28 +120,26 @@ public abstract class AbstractFileFormatDescriptor implements IFileFormatDescrip
   }
 
   @Nonnull
-  @Nonempty
   @ReturnsMutableCopy
-  protected final ICommonsMap <EContentDetectionMode, IContentDetector> internalContentDetectors ()
+  protected final ICommonsMap <EPhiveContentDetectionMode, IPhiveContentDetector> internalContentDetectors ()
   {
     return m_aContentDetectors;
   }
 
   @Nonnull
-  @Nonempty
   @ReturnsMutableCopy
-  public final ICommonsMap <EContentDetectionMode, IContentDetector> getAllContentDetectors ()
+  public final ICommonsMap <EPhiveContentDetectionMode, IPhiveContentDetector> getAllContentDetectors ()
   {
     return m_aContentDetectors.getClone ();
   }
 
   @Nullable
-  public IContentDetector findContentDetector (@Nullable final EContentDetectionMode... aModes)
+  public IPhiveContentDetector findContentDetector (@Nullable final EPhiveContentDetectionMode... aModes)
   {
     if (aModes != null)
-      for (final EContentDetectionMode eMode : aModes)
+      for (final EPhiveContentDetectionMode eMode : aModes)
       {
-        final IContentDetector ret = m_aContentDetectors.get (eMode);
+        final IPhiveContentDetector ret = m_aContentDetectors.get (eMode);
         if (ret != null)
           return ret;
       }
