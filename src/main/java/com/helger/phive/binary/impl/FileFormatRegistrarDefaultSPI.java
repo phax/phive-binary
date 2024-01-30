@@ -39,5 +39,6 @@ public final class FileFormatRegistrarDefaultSPI implements IFileFormatRegistrar
     aRegistry.registerFileFormat (new FileFormatDescriptorPSD ());
     aRegistry.registerFileFormat (new FileFormatDescriptorTIFF ());
     aRegistry.registerFileFormat (new FileFormatDescriptorXLS ());
+    aRegistry.registerFileFormat (new FileFormatDescriptorXLSX ());
   }
 }
