@@ -33,6 +33,7 @@ public final class FileFormatRegistrarDefaultSPI implements IFileFormatRegistrar
   public void registerFileFormats (@Nonnull final IFileFormatRegistry aRegistry)
   {
     aRegistry.registerFileFormat (new FileFormatDescriptorCSV ());
+    aRegistry.registerFileFormat (new FileFormatDescriptorGIF ());
     aRegistry.registerFileFormat (new FileFormatDescriptorPDF ());
   }
 }
