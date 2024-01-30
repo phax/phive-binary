@@ -24,7 +24,7 @@ import javax.annotation.Nonnull;
  * @author Philip Helger
  */
 @FunctionalInterface
-public interface IPhiveContentDetector
+public interface IPhiveContentValidator
 {
   /**
    * Check if the provided data matches the requirements.

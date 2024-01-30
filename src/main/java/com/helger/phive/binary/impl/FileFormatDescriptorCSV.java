@@ -33,7 +33,7 @@ public class FileFormatDescriptorCSV extends AbstractFileFormatDescriptor
     super ("Comma-separated values",
            "CSV",
            new CommonsArrayList <> ("csv"),
-           new CommonsArrayList <> (CMimeType.TEXT_CSV.getAsStringWithoutParameters ()),
+           new CommonsArrayList <> (CMimeType.TEXT_CSV.getAsString ()),
            new CommonsHashMap <> ());
   }
 }

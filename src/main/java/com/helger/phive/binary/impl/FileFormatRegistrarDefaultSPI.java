@@ -28,7 +28,7 @@ import com.helger.phive.binary.IFileFormatRegistry;
  * @author Philip Helger
  */
 @IsSPIImplementation
-public class FileFormatRegistrarDefaultSPI implements IFileFormatRegistrarSPI
+public final class FileFormatRegistrarDefaultSPI implements IFileFormatRegistrarSPI
 {
   public void registerFileFormats (@Nonnull final IFileFormatRegistry aRegistry)
   {

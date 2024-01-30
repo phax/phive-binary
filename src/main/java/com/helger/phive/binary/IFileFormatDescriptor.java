@@ -64,17 +64,16 @@ public interface IFileFormatDescriptor extends IHasName
   ICommonsSet <String> getAllAllowedMimeTypes ();
 
   /**
-   * @return A map with all registered content detectors for this file format.
-   *         Not all file formats support all detection modes. Neither
-   *         <code>null</code> nor empty.
+   * @return A map with all registered content validators for this file format.
+   *         Not all file formats support one or all detection modes. Never
+   *         <code>null</code> but maybe empty.
    */
   @Nonnull
-  @Nonempty
   @ReturnsMutableCopy
-  ICommonsMap <EPhiveContentDetectionMode, IPhiveContentDetector> getAllContentDetectors ();
+  ICommonsMap <EPhiveContentValidationMode, IPhiveContentValidator> getAllContentValidators ();
 
   /**
-   * Find the best matching content detector, based on the provided detection
+   * Find the best matching content validator, based on the provided validation
    * modes.
    *
    * @param aModes
@@ -84,25 +83,25 @@ public interface IFileFormatDescriptor extends IHasName
    *         not contain a detector for the provided modes.
    */
   @Nullable
-  IPhiveContentDetector findContentDetector (@Nullable EPhiveContentDetectionMode... aModes);
+  IPhiveContentValidator findContentValidator (@Nullable EPhiveContentValidationMode... aModes);
 
   /**
-   * @return The first provided content detector, with speed prioritized over
+   * @return The first provided content validator, with speed prioritized over
    *         accuracy. May be <code>null</code>.
    */
   @Nullable
-  default IPhiveContentDetector getContentDetectorFavourSpeed ()
+  default IPhiveContentValidator getContentValidatorFavourSpeed ()
   {
-    return findContentDetector (EPhiveContentDetectionMode.LEADING_BYTES, EPhiveContentDetectionMode.FULL_PARSE);
+    return findContentValidator (EPhiveContentValidationMode.LEADING_BYTES, EPhiveContentValidationMode.FULL_PARSE);
   }
 
   /**
-   * @return The first provided content detector, with accuracy prioritized over
-   *         speed. May be <code>null</code>.
+   * @return The first provided content validator, with accuracy prioritized
+   *         over speed. May be <code>null</code>.
    */
   @Nullable
-  default IPhiveContentDetector getContentDetectorFavourAccuracy ()
+  default IPhiveContentValidator getContentValidatorFavourAccuracy ()
   {
-    return findContentDetector (EPhiveContentDetectionMode.FULL_PARSE, EPhiveContentDetectionMode.LEADING_BYTES);
+    return findContentValidator (EPhiveContentValidationMode.FULL_PARSE, EPhiveContentValidationMode.LEADING_BYTES);
   }
 }

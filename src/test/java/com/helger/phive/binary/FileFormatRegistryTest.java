@@ -18,6 +18,7 @@ package com.helger.phive.binary;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import java.nio.charset.StandardCharsets;
@@ -25,6 +26,7 @@ import java.nio.charset.StandardCharsets;
 import org.junit.Test;
 
 import com.helger.commons.mime.CMimeType;
+import com.helger.commons.mime.IMimeType;
 import com.helger.phive.binary.impl.FileFormatDescriptorCSV;
 import com.helger.phive.binary.impl.FileFormatDescriptorPDF;
 
@@ -35,6 +37,20 @@ import com.helger.phive.binary.impl.FileFormatDescriptorPDF;
  */
 public class FileFormatRegistryTest
 {
+  @Test
+  public void testBasic ()
+  {
+    final FileFormatRegistry aReg = FileFormatRegistry.getInstance ();
+    assertNull (aReg.getFileFormatDescriptorByFileExtension ("aaa"));
+    assertNull (aReg.getFileFormatDescriptorByFileExtension (""));
+    assertNull (aReg.getFileFormatDescriptorByFileExtension (null));
+    assertNull (aReg.getFileFormatDescriptorByMimeType ("application/xyz"));
+    assertNull (aReg.getFileFormatDescriptorByMimeType ("application/pdf; x=y"));
+    assertNull (aReg.getFileFormatDescriptorByMimeType (""));
+    assertNull (aReg.getFileFormatDescriptorByMimeType ((String) null));
+    assertNull (aReg.getFileFormatDescriptorByMimeType ((IMimeType) null));
+  }
+
   @Test
   public void testCSV ()
   {
@@ -60,9 +76,10 @@ public class FileFormatRegistryTest
     final byte [] aFailing = "%PdF-1.6blafoo".getBytes (StandardCharsets.ISO_8859_1);
 
     final FileFormatRegistry aReg = FileFormatRegistry.getInstance ();
-    final IPhiveContentDetector aContentDetector = aReg.getFileFormatDescriptorByMimeType (CMimeType.APPLICATION_PDF)
-                                                       .getContentDetectorFavourSpeed ();
-    assertTrue (aContentDetector.matchesContent (aMatching));
-    assertFalse (aContentDetector.matchesContent (aFailing));
+    final IPhiveContentValidator aContentValidator = aReg.getFileFormatDescriptorByMimeType (CMimeType.APPLICATION_PDF)
+                                                         .getContentValidatorFavourSpeed ();
+    assertNotNull (aContentValidator);
+    assertTrue (aContentValidator.matchesContent (aMatching));
+    assertFalse (aContentValidator.matchesContent (aFailing));
   }
 }
