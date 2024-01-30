@@ -79,7 +79,7 @@ public class FileFormatRegistryTest
     final IPhiveContentValidator aContentValidator = aReg.getFileFormatDescriptorByMimeType (CMimeType.APPLICATION_PDF)
                                                          .getContentValidatorFavourSpeed ();
     assertNotNull (aContentValidator);
-    assertTrue (aContentValidator.matchesContent (aMatching));
-    assertFalse (aContentValidator.matchesContent (aFailing));
+    assertTrue (aContentValidator.isValidContent (aMatching));
+    assertFalse (aContentValidator.isValidContent (aFailing));
   }
 }

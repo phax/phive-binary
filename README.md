@@ -8,7 +8,14 @@ The goal of the library is to make sure, that certain binary file types can be c
 Each file format is implemented as an instance of `IFileFormatDescriptor`.
 Each file format is registered into the singleton instance `FileFormatRegistry.getInstance ()`.
 Based on a file extension (e.g. `pdf`) or based on a MIME type (e.g. `application/pdf`) you need to get the `IFileFormatDescriptor` you need.
-And for each file format descriptor several content determinators may be available.
+And for each file format descriptor several content validators may be available.
+Via `getContentValidatorFavourSpeed ()` or `getContentValidatorFavourAccuracy ()` the matching `IPhiveContentValidator` can be retrieved.
+And finally the content validator does the actual matching.
+
+So to summarize:
+1. Get `IFileFormatDescriptor` from `FileFormatRegistry.getInstance ()`
+1. Choose the `IPhiveContentValidator` from the file format descriptor (this object can be cached by the way) 
+1. Let the content validator check if the provided value matches
 
 # Maven usage
 

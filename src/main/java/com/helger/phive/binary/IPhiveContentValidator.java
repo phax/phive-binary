@@ -17,6 +17,7 @@
 package com.helger.phive.binary;
 
 import javax.annotation.Nonnull;
+import javax.annotation.concurrent.Immutable;
 
 /**
  * A single content detector interface
@@ -24,6 +25,7 @@ import javax.annotation.Nonnull;
  * @author Philip Helger
  */
 @FunctionalInterface
+@Immutable
 public interface IPhiveContentValidator
 {
   /**
@@ -34,5 +36,5 @@ public interface IPhiveContentValidator
    * @return <code>true</code> if the expected content was detected,
    *         <code>false</code> if not.
    */
-  boolean matchesContent (@Nonnull byte [] aData);
+  boolean isValidContent (@Nonnull byte [] aData);
 }

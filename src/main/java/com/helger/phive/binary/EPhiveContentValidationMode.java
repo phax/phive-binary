@@ -24,7 +24,7 @@ import com.helger.commons.id.IHasID;
 import com.helger.commons.lang.EnumHelper;
 
 /**
- * This enum defines how content detection should take place
+ * This enum defines how content validation should take place
  *
  * @author Philip Helger
  */
@@ -32,7 +32,7 @@ public enum EPhiveContentValidationMode implements IHasID <String>
 {
   /**
    * The file format is detected based on the first n bytes of the content. This
-   * is usually a very efficient way of checking.
+   * is usually a very efficient way of checking but has smaller accuracy.
    */
   LEADING_BYTES ("leading-bytes"),
 
