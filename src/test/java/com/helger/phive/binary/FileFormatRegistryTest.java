@@ -16,6 +16,7 @@
  */
 package com.helger.phive.binary;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
@@ -55,11 +56,13 @@ public class FileFormatRegistryTest
   @Test
   public void testDetermination ()
   {
-    final byte [] aDummyPayload = "%PDF-1.6blafoo".getBytes (StandardCharsets.ISO_8859_1);
+    final byte [] aMatching = "%PDF-1.6blafoo".getBytes (StandardCharsets.ISO_8859_1);
+    final byte [] aFailing = "%PdF-1.6blafoo".getBytes (StandardCharsets.ISO_8859_1);
 
     final FileFormatRegistry aReg = FileFormatRegistry.getInstance ();
     final IPhiveContentDetector aContentDetector = aReg.getFileFormatDescriptorByMimeType (CMimeType.APPLICATION_PDF)
-                                                  .getContentDetectorFavourSpeed ();
-    assertTrue (aContentDetector.matchesContent (aDummyPayload));
+                                                       .getContentDetectorFavourSpeed ();
+    assertTrue (aContentDetector.matchesContent (aMatching));
+    assertFalse (aContentDetector.matchesContent (aFailing));
   }
 }
