@@ -24,7 +24,6 @@ import javax.annotation.concurrent.Immutable;
  *
  * @author Philip Helger
  */
-@FunctionalInterface
 @Immutable
 public interface IPhiveContentValidator
 {
