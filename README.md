@@ -17,6 +17,11 @@ So to summarize:
 1. Choose the `IPhiveContentValidator` from the file format descriptor (this object can be cached by the way) 
 1. Let the content validator check if the provided value matches
 
+# Extensibility
+
+All known file formats are loaded via [SPI](https://docs.oracle.com/javase/tutorial/ext/basics/spi.html).
+By implementing the `com.helger.phive.binary.IFileFormatRegistrarSPI` in your application, custom file formats can be added.
+
 # Maven usage
 
 Add the following to your pom.xml to use this artifact, replacing `x.y.z` with the real version number:
