@@ -38,3 +38,4 @@ Add the following to your pom.xml to use this artifact, replacing `x.y.z` with t
 
 * v0.1.0 - 2024-01-31
     * Initial version
+    * Supported formats are: CSV (no content validator), GIF, JPG, PDF, PNG, PSD, TIFF, XLS, XSLX and XML
