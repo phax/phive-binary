@@ -36,5 +36,5 @@ Add the following to your pom.xml to use this artifact, replacing `x.y.z` with t
 
 # News and Noteworthy
 
-* v0.1.0 - 2024-01-30
+* v0.1.0 - 2024-01-31
     * Initial version
