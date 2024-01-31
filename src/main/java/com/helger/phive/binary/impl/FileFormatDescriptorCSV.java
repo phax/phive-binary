@@ -28,9 +28,11 @@ import com.helger.phive.binary.AbstractFileFormatDescriptor;
  */
 public class FileFormatDescriptorCSV extends AbstractFileFormatDescriptor
 {
+  public static final String NAME = "Comma-separated values";
+
   public FileFormatDescriptorCSV ()
   {
-    super ("Comma-separated values",
+    super (NAME,
            "CSV",
            new CommonsArrayList <> ("csv"),
            new CommonsArrayList <> (CMimeType.TEXT_CSV.getAsString ()),

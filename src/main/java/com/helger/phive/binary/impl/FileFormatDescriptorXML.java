@@ -37,6 +37,7 @@ import com.helger.phive.binary.IPhiveContentValidator;
  */
 public class FileFormatDescriptorXML extends AbstractFileFormatDescriptor
 {
+  public static final String NAME = "XML";
   private static final ICommonsList <byte []> PREFIXES = new CommonsArrayList <> (8 * EUnicodeBOM.values ().length);
   static
   {
@@ -84,8 +85,8 @@ public class FileFormatDescriptorXML extends AbstractFileFormatDescriptor
 
   public FileFormatDescriptorXML ()
   {
-    super ("XML",
-           "XML",
+    super (NAME,
+           NAME,
            new CommonsArrayList <> ("xml"),
            new CommonsArrayList <> (CMimeType.APPLICATION_XML.getAsString (), CMimeType.TEXT_XML.getAsString ()),
            _getContentValidators ());

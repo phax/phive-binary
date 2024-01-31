@@ -35,6 +35,7 @@ import com.helger.phive.binary.IPhiveContentValidator;
  */
 public class FileFormatDescriptorGIF extends AbstractFileFormatDescriptor
 {
+  public static final String NAME = "Graphics Interchange Format";
   private static final byte [] MIME_ID_GIF87A = { 'G', 'I', 'F', '8', '7', 'a' };
   private static final byte [] MIME_ID_GIF89A = { 'G', 'I', 'F', '8', '9', 'a' };
 
@@ -49,7 +50,7 @@ public class FileFormatDescriptorGIF extends AbstractFileFormatDescriptor
 
   public FileFormatDescriptorGIF ()
   {
-    super ("Graphics Interchange Format",
+    super (NAME,
            "GIF",
            new CommonsArrayList <> ("gif"),
            new CommonsArrayList <> (CMimeType.IMAGE_GIF.getAsString ()),

@@ -35,6 +35,7 @@ import com.helger.phive.binary.IPhiveContentValidator;
  */
 public class FileFormatDescriptorTIFF extends AbstractFileFormatDescriptor
 {
+  public static final String NAME = "Tagged Image File Format";
   private static final byte [] MIME_ID_TIFF_INTEL = { 'I', 'I' };
   private static final byte [] MIME_ID_TIFF_MOTOROLLA = { 'M', 'M' };
 
@@ -50,7 +51,7 @@ public class FileFormatDescriptorTIFF extends AbstractFileFormatDescriptor
 
   public FileFormatDescriptorTIFF ()
   {
-    super ("Tagged Image File Format",
+    super (NAME,
            "TIFF",
            new CommonsArrayList <> ("tif", "tiff"),
            new CommonsArrayList <> (CMimeType.IMAGE_TIFF.getAsString ()),

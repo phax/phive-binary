@@ -35,6 +35,7 @@ import com.helger.phive.binary.IPhiveContentValidator;
  */
 public class FileFormatDescriptorXLS extends AbstractFileFormatDescriptor
 {
+  public static final String NAME = "Excel Document (before 2007)";
   private static final byte [] MIME_ID_XLS = { (byte) 0xD0, (byte) 0xcd, 0x11, (byte) 0xe0 };
 
   @Nonnull
@@ -47,7 +48,7 @@ public class FileFormatDescriptorXLS extends AbstractFileFormatDescriptor
 
   public FileFormatDescriptorXLS ()
   {
-    super ("Excel Document (before 2007)",
+    super (NAME,
            "XLS",
            new CommonsArrayList <> ("xls"),
            new CommonsArrayList <> (CMimeType.APPLICATION_MS_EXCEL.getAsString ()),

@@ -35,6 +35,7 @@ import com.helger.phive.binary.IPhiveContentValidator;
  */
 public class FileFormatDescriptorPNG extends AbstractFileFormatDescriptor
 {
+  public static final String NAME = "Portable Network Graphic";
   private static final byte [] MIME_ID_PNG = { (byte) 0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a };
 
   @Nonnull
@@ -47,7 +48,7 @@ public class FileFormatDescriptorPNG extends AbstractFileFormatDescriptor
 
   public FileFormatDescriptorPNG ()
   {
-    super ("Portable Network Graphic",
+    super (NAME,
            "PNG",
            new CommonsArrayList <> ("png"),
            new CommonsArrayList <> (CMimeType.IMAGE_PNG.getAsString ()),

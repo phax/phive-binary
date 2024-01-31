@@ -35,6 +35,7 @@ import com.helger.phive.binary.IPhiveContentValidator;
  */
 public class FileFormatDescriptorPDF extends AbstractFileFormatDescriptor
 {
+  public static final String NAME = "Portable Document Format";
   private static final byte [] MIME_ID_PDF = { '%', 'P', 'D', 'F' };
 
   @Nonnull
@@ -47,7 +48,7 @@ public class FileFormatDescriptorPDF extends AbstractFileFormatDescriptor
 
   public FileFormatDescriptorPDF ()
   {
-    super ("Portable Document Format",
+    super (NAME,
            "PDF",
            new CommonsArrayList <> ("pdf"),
            new CommonsArrayList <> (CMimeType.APPLICATION_PDF.getAsString ()),

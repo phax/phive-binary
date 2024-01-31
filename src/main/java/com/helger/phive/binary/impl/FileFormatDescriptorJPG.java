@@ -35,6 +35,7 @@ import com.helger.phive.binary.IPhiveContentValidator;
  */
 public class FileFormatDescriptorJPG extends AbstractFileFormatDescriptor
 {
+  public static final String NAME = "JPEG image";
   private static final byte [] MIME_ID_JPG = { (byte) 0xff, (byte) 0xd8 };
 
   @Nonnull
@@ -47,7 +48,7 @@ public class FileFormatDescriptorJPG extends AbstractFileFormatDescriptor
 
   public FileFormatDescriptorJPG ()
   {
-    super ("JPEG image",
+    super (NAME,
            "JPEG",
            new CommonsArrayList <> ("jpg", "jpeg"),
            new CommonsArrayList <> (CMimeType.IMAGE_JPG.getAsString ()),

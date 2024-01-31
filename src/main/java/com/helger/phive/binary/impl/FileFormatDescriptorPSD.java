@@ -35,6 +35,7 @@ import com.helger.phive.binary.IPhiveContentValidator;
  */
 public class FileFormatDescriptorPSD extends AbstractFileFormatDescriptor
 {
+  public static final String NAME = "Photoshop Document";
   private static final byte [] MIME_ID_PSD = { '8', 'B', 'P', 'S' };
 
   @Nonnull
@@ -47,7 +48,7 @@ public class FileFormatDescriptorPSD extends AbstractFileFormatDescriptor
 
   public FileFormatDescriptorPSD ()
   {
-    super ("Photoshop Document",
+    super (NAME,
            "PSD",
            new CommonsArrayList <> ("psd"),
            new CommonsArrayList <> (CMimeType.IMAGE_PSD.getAsString ()),
