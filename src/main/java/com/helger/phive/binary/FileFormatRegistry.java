@@ -34,6 +34,7 @@ import com.helger.commons.collection.impl.ICommonsOrderedMap;
 import com.helger.commons.concurrent.SimpleReadWriteLock;
 import com.helger.commons.lang.ServiceLoaderHelper;
 import com.helger.commons.state.ESuccess;
+import com.helger.commons.string.StringHelper;
 import com.helger.commons.string.ToStringGenerator;
 
 /**
@@ -131,6 +132,14 @@ public class FileFormatRegistry implements IFileFormatRegistry
   public final ICommonsOrderedMap <String, IFileFormatDescriptor> getAllFileFormatDescriptors ()
   {
     return m_aRWLock.readLockedGet ( () -> m_aNameMap.getClone ());
+  }
+
+  @Nullable
+  public IFileFormatDescriptor getFileFormatDescriptorOfName (@Nullable final String sName)
+  {
+    if (StringHelper.hasNoText (sName))
+      return null;
+    return m_aRWLock.readLockedGet ( () -> m_aNameMap.get (sName));
   }
 
   @Nullable

@@ -52,12 +52,48 @@ public interface IFileFormatRegistry
   @ReturnsMutableCopy
   ICommonsOrderedMap <String, IFileFormatDescriptor> getAllFileFormatDescriptors ();
 
+  /**
+   * Find the file format descriptor with the given name
+   *
+   * @param sName
+   *        The name of the file format descriptor to use. May be
+   *        <code>null</code>.
+   * @return <code>null</code> if no such file format descriptor exists
+   * @since 0.1.1
+   */
+  @Nullable
+  IFileFormatDescriptor getFileFormatDescriptorOfName (@Nullable String sName);
+
+  /**
+   * Find the file format descriptor with the given file extension
+   *
+   * @param sFileExt
+   *        The file extension of the file format descriptor to use. Must be all
+   *        lowercase and not have a leading dot. May be <code>null</code>.
+   * @return <code>null</code> if no such file format descriptor exists
+   */
   @Nullable
   IFileFormatDescriptor getFileFormatDescriptorByFileExtension (@Nullable String sFileExt);
 
+  /**
+   * Find the file format descriptor with the given MIME type
+   *
+   * @param sMimeType
+   *        The MIME type of the file format descriptor to use. Must be all
+   *        lowercase and not have any parameters. May be <code>null</code>.
+   * @return <code>null</code> if no such file format descriptor exists
+   */
   @Nullable
   IFileFormatDescriptor getFileFormatDescriptorByMimeType (@Nullable String sMimeType);
 
+  /**
+   * Find the file format descriptor with the given MIME type
+   *
+   * @param aMimeType
+   *        The MIME type of the file format descriptor to use. May be
+   *        <code>null</code>.
+   * @return <code>null</code> if no such file format descriptor exists
+   */
   @Nullable
   default IFileFormatDescriptor getFileFormatDescriptorByMimeType (@Nullable final IMimeType aMimeType)
   {
