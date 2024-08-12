@@ -6,6 +6,8 @@
 A validation library for binary formats inspired by phive.
 The goal of the library is to make sure, that certain binary file types can be checked for validity based on either file extension or MIME Type.
 
+This project is part of my Peppol solution stack. See https://github.com/phax/peppol for other components and libraries in that area.
+
 # Basic usage
 
 Each file format is implemented as an instance of `IFileFormatDescriptor`.
