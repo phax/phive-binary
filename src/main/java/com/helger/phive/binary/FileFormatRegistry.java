@@ -16,30 +16,29 @@
  */
 package com.helger.phive.binary;
 
-import javax.annotation.Nonnegative;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.concurrent.GuardedBy;
-import javax.annotation.concurrent.ThreadSafe;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.helger.commons.ValueEnforcer;
-import com.helger.commons.annotation.ReturnsMutableCopy;
-import com.helger.commons.collection.impl.CommonsHashMap;
-import com.helger.commons.collection.impl.CommonsLinkedHashMap;
-import com.helger.commons.collection.impl.ICommonsMap;
-import com.helger.commons.collection.impl.ICommonsOrderedMap;
-import com.helger.commons.concurrent.SimpleReadWriteLock;
-import com.helger.commons.lang.ServiceLoaderHelper;
-import com.helger.commons.state.ESuccess;
-import com.helger.commons.string.StringHelper;
-import com.helger.commons.string.ToStringGenerator;
+import com.helger.annotation.Nonnegative;
+import com.helger.annotation.concurrent.GuardedBy;
+import com.helger.annotation.concurrent.ThreadSafe;
+import com.helger.annotation.style.ReturnsMutableCopy;
+import com.helger.base.concurrent.SimpleReadWriteLock;
+import com.helger.base.enforce.ValueEnforcer;
+import com.helger.base.spi.ServiceLoaderHelper;
+import com.helger.base.state.ESuccess;
+import com.helger.base.string.StringHelper;
+import com.helger.base.tostring.ToStringGenerator;
+import com.helger.collection.commons.CommonsHashMap;
+import com.helger.collection.commons.CommonsLinkedHashMap;
+import com.helger.collection.commons.ICommonsMap;
+import com.helger.collection.commons.ICommonsOrderedMap;
+
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
- * This is a central file format registry that should be used to started
- * detection processes.
+ * This is a central file format registry that should be used to started detection processes.
  *
  * @author Philip Helger
  */
@@ -137,7 +136,7 @@ public class FileFormatRegistry implements IFileFormatRegistry
   @Nullable
   public IFileFormatDescriptor getFileFormatDescriptorOfName (@Nullable final String sName)
   {
-    if (StringHelper.hasNoText (sName))
+    if (StringHelper.isEmpty (sName))
       return null;
     return m_aRWLock.readLockedGet ( () -> m_aNameMap.get (sName));
   }

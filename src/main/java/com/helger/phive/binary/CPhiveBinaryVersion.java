@@ -16,14 +16,13 @@
  */
 package com.helger.phive.binary;
 
-import javax.annotation.concurrent.Immutable;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.helger.commons.collection.impl.ICommonsMap;
-import com.helger.commons.io.resource.ClassPathResource;
-import com.helger.commons.lang.PropertiesHelper;
+import com.helger.annotation.concurrent.Immutable;
+import com.helger.base.rt.NonBlockingProperties;
+import com.helger.base.rt.PropertiesHelper;
+import com.helger.io.resource.ClassPathResource;
 
 /**
  * Contains the version constants of phive-binary.
@@ -44,7 +43,8 @@ public final class CPhiveBinaryVersion
   {
     String sProjectVersion = null;
     String sProjectTimestamp = null;
-    final ICommonsMap <String, String> p = PropertiesHelper.loadProperties (new ClassPathResource ("phive-binary-version.properties"));
+    final NonBlockingProperties p = PropertiesHelper.loadProperties (ClassPathResource.getInputStream ("phive-binary-version.properties",
+                                                                                                       CPhiveBinaryVersion.class.getClassLoader ()));
     if (p != null)
     {
       sProjectVersion = p.get ("version");

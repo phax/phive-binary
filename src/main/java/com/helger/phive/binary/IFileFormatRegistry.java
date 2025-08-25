@@ -16,13 +16,13 @@
  */
 package com.helger.phive.binary;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import com.helger.annotation.style.ReturnsMutableCopy;
+import com.helger.base.state.ESuccess;
+import com.helger.collection.commons.ICommonsOrderedMap;
+import com.helger.mime.IMimeType;
 
-import com.helger.commons.annotation.ReturnsMutableCopy;
-import com.helger.commons.collection.impl.ICommonsOrderedMap;
-import com.helger.commons.mime.IMimeType;
-import com.helger.commons.state.ESuccess;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * Base interface for a file format registry

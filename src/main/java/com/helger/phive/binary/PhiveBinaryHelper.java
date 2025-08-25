@@ -18,12 +18,12 @@ package com.helger.phive.binary;
 
 import java.util.Locale;
 
-import javax.annotation.Nullable;
-import javax.annotation.concurrent.Immutable;
+import com.helger.annotation.concurrent.Immutable;
+import com.helger.base.string.StringHelper;
+import com.helger.mime.MimeType;
+import com.helger.mime.parse.MimeTypeParser;
 
-import com.helger.commons.mime.MimeType;
-import com.helger.commons.mime.MimeTypeParser;
-import com.helger.commons.string.StringHelper;
+import jakarta.annotation.Nullable;
 
 /**
  * Helper classes
@@ -37,8 +37,8 @@ public final class PhiveBinaryHelper
   {}
 
   /**
-   * Check if the provided file extension is valid or not. Valid file extensions
-   * are non-empty, don't start with a dot and are all-lowercase.
+   * Check if the provided file extension is valid or not. Valid file extensions are non-empty,
+   * don't start with a dot and are all-lowercase.
    *
    * @param s
    *        The file extension to check. May be <code>null</code>.
@@ -46,12 +46,12 @@ public final class PhiveBinaryHelper
    */
   public static boolean isValidFileExtension (@Nullable final String s)
   {
-    return StringHelper.hasText (s) && s.charAt (0) != '.' && s.toLowerCase (Locale.ROOT).equals (s);
+    return StringHelper.isNotEmpty (s) && s.charAt (0) != '.' && s.toLowerCase (Locale.ROOT).equals (s);
   }
 
   /**
-   * Check if the provided MIME Type is valid or not. Valid MIME Types are
-   * non-empty, are all-lowercase and contain no parameters.
+   * Check if the provided MIME Type is valid or not. Valid MIME Types are non-empty, are
+   * all-lowercase and contain no parameters.
    *
    * @param s
    *        The MIME type to check. May be <code>null</code>.
@@ -59,7 +59,7 @@ public final class PhiveBinaryHelper
    */
   public static boolean isValidMimeType (@Nullable final String s)
   {
-    if (StringHelper.hasText (s) && s.toLowerCase (Locale.ROOT).equals (s))
+    if (StringHelper.isNotEmpty (s) && s.toLowerCase (Locale.ROOT).equals (s))
     {
       final MimeType aMimeType = MimeTypeParser.safeParseMimeType (s);
       if (aMimeType != null)

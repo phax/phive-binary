@@ -25,8 +25,8 @@ import java.nio.charset.StandardCharsets;
 
 import org.junit.Test;
 
-import com.helger.commons.mime.CMimeType;
-import com.helger.commons.mime.IMimeType;
+import com.helger.mime.CMimeType;
+import com.helger.mime.IMimeType;
 import com.helger.phive.binary.impl.FileFormatDescriptorCSV;
 import com.helger.phive.binary.impl.FileFormatDescriptorPDF;
 

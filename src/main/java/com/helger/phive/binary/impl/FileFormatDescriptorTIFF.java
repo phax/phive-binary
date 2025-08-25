@@ -18,15 +18,15 @@ package com.helger.phive.binary.impl;
 
 import java.util.Map;
 
-import javax.annotation.Nonnull;
-
-import com.helger.commons.collection.ArrayHelper;
-import com.helger.commons.collection.impl.CommonsArrayList;
-import com.helger.commons.collection.impl.CommonsHashMap;
-import com.helger.commons.mime.CMimeType;
+import com.helger.base.array.ArrayHelper;
+import com.helger.collection.commons.CommonsArrayList;
+import com.helger.collection.commons.CommonsHashMap;
+import com.helger.mime.CMimeType;
 import com.helger.phive.binary.AbstractFileFormatDescriptor;
 import com.helger.phive.binary.EPhiveContentValidationMode;
 import com.helger.phive.binary.IPhiveContentValidator;
+
+import jakarta.annotation.Nonnull;
 
 /**
  * File format descriptor for TIFF

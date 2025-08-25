@@ -16,8 +16,9 @@
  */
 package com.helger.phive.binary;
 
-import javax.annotation.Nonnull;
-import javax.annotation.concurrent.Immutable;
+import com.helger.annotation.concurrent.Immutable;
+
+import jakarta.annotation.Nonnull;
 
 /**
  * A single content detector interface

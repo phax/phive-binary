@@ -16,11 +16,11 @@
  */
 package com.helger.phive.binary.impl;
 
-import javax.annotation.Nonnull;
-
-import com.helger.commons.annotation.IsSPIImplementation;
+import com.helger.annotation.style.IsSPIImplementation;
 import com.helger.phive.binary.IFileFormatRegistrarSPI;
 import com.helger.phive.binary.IFileFormatRegistry;
+
+import jakarta.annotation.Nonnull;
 
 /**
  * The default implementation of {@link IFileFormatRegistrarSPI}

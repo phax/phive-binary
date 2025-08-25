@@ -16,9 +16,9 @@
  */
 package com.helger.phive.binary.impl;
 
-import com.helger.commons.collection.impl.CommonsArrayList;
-import com.helger.commons.collection.impl.CommonsHashMap;
-import com.helger.commons.mime.CMimeType;
+import com.helger.collection.commons.CommonsArrayList;
+import com.helger.collection.commons.CommonsHashMap;
+import com.helger.mime.CMimeType;
 import com.helger.phive.binary.AbstractFileFormatDescriptor;
 
 /**

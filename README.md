@@ -41,6 +41,10 @@ Add the following to your pom.xml to use this artifact, replacing `x.y.z` with t
 
 # News and Noteworthy
 
-* v0.1.0 - 2024-01-31
-    * Initial version
-    * Supported formats are: CSV (no content validator), GIF, JPG, PDF, PNG, PSD, TIFF, XLS, XSLX and XML
+v0.2.0 - 2025-08-24
+* Requires Java 17 as the minimum version
+* Updated to ph-commons 12.0.0
+
+v0.1.0 - 2024-01-31
+* Initial version
+* Supported formats are: CSV (no content validator), GIF, JPG, PDF, PNG, PSD, TIFF, XLS, XSLX and XML
