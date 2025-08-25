@@ -124,7 +124,7 @@
         <configuration>
           <instructions>
             <Automatic-Module-Name>com.helger.phive.binary</Automatic-Module-Name>
-            <Import-Package>!javax.annotation.*,*</Import-Package>
+            <Import-Package>!jakarta.annotation.*,*</Import-Package>
             <Export-Package>com.helger.phive.binary,
               com.helger.phive.binary.impl</Export-Package>
             <Include-Resource>{maven-resources},phive-binary-version.properties=target/classes/phive-binary-version.properties</Include-Resource>
