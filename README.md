@@ -1,7 +1,7 @@
 # phive-binary
 
+[![Maven Central](https://img.shields.io/maven-central/v/com.helger.phive/phive-binary)](https://img.shields.io/maven-central/v/com.helger.phive/phive-binary)
 [![javadoc](https://javadoc.io/badge2/com.helger.phive/phive-binary/javadoc.svg)](https://javadoc.io/doc/com.helger.phive/phive-binary)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.helger.phive/phive-binary/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.helger.phive/phive-binary) 
 
 A validation library for binary formats inspired by phive.
 The goal of the library is to make sure, that certain binary file types can be checked for validity based on either file extension or MIME Type.
