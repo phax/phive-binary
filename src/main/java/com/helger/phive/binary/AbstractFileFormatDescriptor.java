@@ -19,6 +19,9 @@ package com.helger.phive.binary;
 import java.util.Collection;
 import java.util.Map;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.style.ReturnsMutableCopy;
 import com.helger.annotation.style.ReturnsMutableObject;
@@ -29,9 +32,6 @@ import com.helger.collection.commons.CommonsHashMap;
 import com.helger.collection.commons.CommonsHashSet;
 import com.helger.collection.commons.ICommonsMap;
 import com.helger.collection.commons.ICommonsSet;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Abstract implementation of {@link IFileFormatDescriptor}.
@@ -46,11 +46,11 @@ public abstract class AbstractFileFormatDescriptor implements IFileFormatDescrip
   private final ICommonsSet <String> m_aAllowedMimeTypes;
   private final ICommonsMap <EPhiveContentValidationMode, IPhiveContentValidator> m_aContentValidators;
 
-  protected AbstractFileFormatDescriptor (@Nonnull @Nonempty final String sName,
+  protected AbstractFileFormatDescriptor (@NonNull @Nonempty final String sName,
                                           @Nullable final String sShortName,
-                                          @Nonnull @Nonempty final Collection <String> aAllowedFileExtensions,
-                                          @Nonnull @Nonempty final Collection <String> aAllowedMimeTypes,
-                                          @Nonnull final Map <EPhiveContentValidationMode, IPhiveContentValidator> aContentValidators)
+                                          @NonNull @Nonempty final Collection <String> aAllowedFileExtensions,
+                                          @NonNull @Nonempty final Collection <String> aAllowedMimeTypes,
+                                          @NonNull final Map <EPhiveContentValidationMode, IPhiveContentValidator> aContentValidators)
   {
     if (ValueEnforcer.isEnabled ())
     {
@@ -73,21 +73,21 @@ public abstract class AbstractFileFormatDescriptor implements IFileFormatDescrip
     m_aContentValidators = new CommonsHashMap <> (aContentValidators);
   }
 
-  @Nonnull
+  @NonNull
   @Nonempty
   public final String getName ()
   {
     return m_sName;
   }
 
-  @Nonnull
+  @NonNull
   @Nonempty
   public final String getShortName ()
   {
     return m_sShortName;
   }
 
-  @Nonnull
+  @NonNull
   @Nonempty
   @ReturnsMutableObject
   protected final ICommonsSet <String> allowedFileExtensions ()
@@ -95,7 +95,7 @@ public abstract class AbstractFileFormatDescriptor implements IFileFormatDescrip
     return m_aAllowedFileExtensions;
   }
 
-  @Nonnull
+  @NonNull
   @Nonempty
   @ReturnsMutableCopy
   public final ICommonsSet <String> getAllAllowedFileExtensions ()
@@ -103,7 +103,7 @@ public abstract class AbstractFileFormatDescriptor implements IFileFormatDescrip
     return m_aAllowedFileExtensions.getClone ();
   }
 
-  @Nonnull
+  @NonNull
   @Nonempty
   @ReturnsMutableObject
   protected final ICommonsSet <String> internalAllowedMimeTypes ()
@@ -111,7 +111,7 @@ public abstract class AbstractFileFormatDescriptor implements IFileFormatDescrip
     return m_aAllowedMimeTypes;
   }
 
-  @Nonnull
+  @NonNull
   @Nonempty
   @ReturnsMutableCopy
   public final ICommonsSet <String> getAllAllowedMimeTypes ()
@@ -119,14 +119,14 @@ public abstract class AbstractFileFormatDescriptor implements IFileFormatDescrip
     return m_aAllowedMimeTypes.getClone ();
   }
 
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   protected final ICommonsMap <EPhiveContentValidationMode, IPhiveContentValidator> internalContentDetectors ()
   {
     return m_aContentValidators;
   }
 
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   public final ICommonsMap <EPhiveContentValidationMode, IPhiveContentValidator> getAllContentValidators ()
   {

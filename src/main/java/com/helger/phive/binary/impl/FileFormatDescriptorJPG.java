@@ -18,6 +18,8 @@ package com.helger.phive.binary.impl;
 
 import java.util.Map;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.base.array.ArrayHelper;
 import com.helger.collection.commons.CommonsArrayList;
 import com.helger.collection.commons.CommonsHashMap;
@@ -25,8 +27,6 @@ import com.helger.mime.CMimeType;
 import com.helger.phive.binary.AbstractFileFormatDescriptor;
 import com.helger.phive.binary.EPhiveContentValidationMode;
 import com.helger.phive.binary.IPhiveContentValidator;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * File format descriptor for JPG/JPEG
@@ -38,7 +38,7 @@ public class FileFormatDescriptorJPG extends AbstractFileFormatDescriptor
   public static final String NAME = "JPEG image";
   private static final byte [] MIME_ID_JPG = { (byte) 0xff, (byte) 0xd8 };
 
-  @Nonnull
+  @NonNull
   private static Map <EPhiveContentValidationMode, IPhiveContentValidator> _getContentValidators ()
   {
     final Map <EPhiveContentValidationMode, IPhiveContentValidator> ret = new CommonsHashMap <> ();

@@ -16,13 +16,13 @@
  */
 package com.helger.phive.binary;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.style.ReturnsMutableCopy;
 import com.helger.base.state.ESuccess;
 import com.helger.collection.commons.ICommonsOrderedMap;
 import com.helger.mime.IMimeType;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Base interface for a file format registry
@@ -41,14 +41,14 @@ public interface IFileFormatRegistry
    *         registered, {@link ESuccess#FAILURE} if not. Never
    *         <code>null</code>.
    */
-  @Nonnull
-  ESuccess registerFileFormat (@Nonnull IFileFormatDescriptor aDescriptor);
+  @NonNull
+  ESuccess registerFileFormat (@NonNull IFileFormatDescriptor aDescriptor);
 
   /**
    * @return A map with all registered file format descriptors, with the file
    *         format name as the key.
    */
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   ICommonsOrderedMap <String, IFileFormatDescriptor> getAllFileFormatDescriptors ();
 

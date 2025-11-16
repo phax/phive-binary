@@ -16,9 +16,9 @@
  */
 package com.helger.phive.binary;
 
-import com.helger.annotation.concurrent.Immutable;
+import org.jspecify.annotations.NonNull;
 
-import jakarta.annotation.Nonnull;
+import com.helger.annotation.concurrent.Immutable;
 
 /**
  * A single content detector interface
@@ -36,5 +36,5 @@ public interface IPhiveContentValidator
    * @return <code>true</code> if the expected content was detected,
    *         <code>false</code> if not.
    */
-  boolean isValidContent (@Nonnull byte [] aData);
+  boolean isValidContent (@NonNull byte [] aData);
 }

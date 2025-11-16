@@ -18,12 +18,12 @@ package com.helger.phive.binary;
 
 import java.util.Locale;
 
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.concurrent.Immutable;
 import com.helger.base.string.StringHelper;
 import com.helger.mime.MimeType;
 import com.helger.mime.parse.MimeTypeParser;
-
-import jakarta.annotation.Nullable;
 
 /**
  * Helper classes

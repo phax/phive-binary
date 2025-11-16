@@ -16,14 +16,14 @@
  */
 package com.helger.phive.binary;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.style.ReturnsMutableCopy;
 import com.helger.base.name.IHasName;
 import com.helger.collection.commons.ICommonsMap;
 import com.helger.collection.commons.ICommonsSet;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Descriptor for a single file format.
@@ -36,7 +36,7 @@ public interface IFileFormatDescriptor extends IHasName
    * @return The short name of the file format. Defaults to the default name.
    *         E.g. "PDF" would be the short name for "Portable File Format".
    */
-  @Nonnull
+  @NonNull
   @Nonempty
   String getShortName ();
 
@@ -47,7 +47,7 @@ public interface IFileFormatDescriptor extends IHasName
    *         characters. Each file extension must be assigned to exactly one
    *         file format only. Neither <code>null</code> nor empty.
    */
-  @Nonnull
+  @NonNull
   @Nonempty
   @ReturnsMutableCopy
   ICommonsSet <String> getAllAllowedFileExtensions ();
@@ -58,7 +58,7 @@ public interface IFileFormatDescriptor extends IHasName
    *         contain any parameters (as e.g. in <code>; charset=utf-8</code>).
    *         Neither <code>null</code> nor empty.
    */
-  @Nonnull
+  @NonNull
   @Nonempty
   @ReturnsMutableCopy
   ICommonsSet <String> getAllAllowedMimeTypes ();
@@ -68,7 +68,7 @@ public interface IFileFormatDescriptor extends IHasName
    *         Not all file formats support one or all detection modes. Never
    *         <code>null</code> but maybe empty.
    */
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   ICommonsMap <EPhiveContentValidationMode, IPhiveContentValidator> getAllContentValidators ();
 

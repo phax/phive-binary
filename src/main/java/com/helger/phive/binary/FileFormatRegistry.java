@@ -16,6 +16,8 @@
  */
 package com.helger.phive.binary;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -33,9 +35,6 @@ import com.helger.collection.commons.CommonsHashMap;
 import com.helger.collection.commons.CommonsLinkedHashMap;
 import com.helger.collection.commons.ICommonsMap;
 import com.helger.collection.commons.ICommonsOrderedMap;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * This is a central file format registry that should be used to started detection processes.
@@ -72,7 +71,7 @@ public class FileFormatRegistry implements IFileFormatRegistry
     return s_bDefaultInstantiated;
   }
 
-  @Nonnull
+  @NonNull
   public static FileFormatRegistry getInstance ()
   {
     final FileFormatRegistry ret = SingletonHolder.INSTANCE;
@@ -80,8 +79,8 @@ public class FileFormatRegistry implements IFileFormatRegistry
     return ret;
   }
 
-  @Nonnull
-  public ESuccess registerFileFormat (@Nonnull final IFileFormatDescriptor aDescriptor)
+  @NonNull
+  public ESuccess registerFileFormat (@NonNull final IFileFormatDescriptor aDescriptor)
   {
     ValueEnforcer.notNull (aDescriptor, "Descriptor");
 
@@ -126,7 +125,7 @@ public class FileFormatRegistry implements IFileFormatRegistry
     });
   }
 
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   public final ICommonsOrderedMap <String, IFileFormatDescriptor> getAllFileFormatDescriptors ()
   {

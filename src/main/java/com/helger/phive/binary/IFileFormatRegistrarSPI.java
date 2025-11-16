@@ -16,9 +16,9 @@
  */
 package com.helger.phive.binary;
 
-import com.helger.annotation.style.IsSPIInterface;
+import org.jspecify.annotations.NonNull;
 
-import jakarta.annotation.Nonnull;
+import com.helger.annotation.style.IsSPIInterface;
 
 /**
  * SPI interface to be implemented by other modules wishing to register their
@@ -35,5 +35,5 @@ public interface IFileFormatRegistrarSPI
    * @param aRegistry
    *        The destination registry. Never <code>null</code>.
    */
-  void registerFileFormats (@Nonnull IFileFormatRegistry aRegistry);
+  void registerFileFormats (@NonNull IFileFormatRegistry aRegistry);
 }

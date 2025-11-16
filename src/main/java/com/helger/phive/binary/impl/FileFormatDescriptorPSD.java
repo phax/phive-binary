@@ -18,6 +18,8 @@ package com.helger.phive.binary.impl;
 
 import java.util.Map;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.base.array.ArrayHelper;
 import com.helger.collection.commons.CommonsArrayList;
 import com.helger.collection.commons.CommonsHashMap;
@@ -25,8 +27,6 @@ import com.helger.mime.CMimeType;
 import com.helger.phive.binary.AbstractFileFormatDescriptor;
 import com.helger.phive.binary.EPhiveContentValidationMode;
 import com.helger.phive.binary.IPhiveContentValidator;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * File format descriptor for PSD
@@ -38,7 +38,7 @@ public class FileFormatDescriptorPSD extends AbstractFileFormatDescriptor
   public static final String NAME = "Photoshop Document";
   private static final byte [] MIME_ID_PSD = { '8', 'B', 'P', 'S' };
 
-  @Nonnull
+  @NonNull
   private static Map <EPhiveContentValidationMode, IPhiveContentValidator> _getContentValidators ()
   {
     final Map <EPhiveContentValidationMode, IPhiveContentValidator> ret = new CommonsHashMap <> ();

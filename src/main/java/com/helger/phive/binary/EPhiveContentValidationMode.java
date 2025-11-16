@@ -16,12 +16,12 @@
  */
 package com.helger.phive.binary;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.base.id.IHasID;
 import com.helger.base.lang.EnumHelper;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * This enum defines how content validation should take place
@@ -45,12 +45,12 @@ public enum EPhiveContentValidationMode implements IHasID <String>
 
   private final String m_sID;
 
-  EPhiveContentValidationMode (@Nonnull @Nonempty final String sID)
+  EPhiveContentValidationMode (@NonNull @Nonempty final String sID)
   {
     m_sID = sID;
   }
 
-  @Nonnull
+  @NonNull
   @Nonempty
   public String getID ()
   {

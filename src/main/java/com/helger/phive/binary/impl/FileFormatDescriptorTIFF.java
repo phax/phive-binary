@@ -18,6 +18,8 @@ package com.helger.phive.binary.impl;
 
 import java.util.Map;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.base.array.ArrayHelper;
 import com.helger.collection.commons.CommonsArrayList;
 import com.helger.collection.commons.CommonsHashMap;
@@ -25,8 +27,6 @@ import com.helger.mime.CMimeType;
 import com.helger.phive.binary.AbstractFileFormatDescriptor;
 import com.helger.phive.binary.EPhiveContentValidationMode;
 import com.helger.phive.binary.IPhiveContentValidator;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * File format descriptor for TIFF
@@ -39,7 +39,7 @@ public class FileFormatDescriptorTIFF extends AbstractFileFormatDescriptor
   private static final byte [] MIME_ID_TIFF_INTEL = { 'I', 'I' };
   private static final byte [] MIME_ID_TIFF_MOTOROLLA = { 'M', 'M' };
 
-  @Nonnull
+  @NonNull
   private static Map <EPhiveContentValidationMode, IPhiveContentValidator> _getContentValidators ()
   {
     final Map <EPhiveContentValidationMode, IPhiveContentValidator> ret = new CommonsHashMap <> ();

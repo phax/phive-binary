@@ -16,11 +16,11 @@
  */
 package com.helger.phive.binary.impl;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.style.IsSPIImplementation;
 import com.helger.phive.binary.IFileFormatRegistrarSPI;
 import com.helger.phive.binary.IFileFormatRegistry;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * The default implementation of {@link IFileFormatRegistrarSPI}
@@ -30,7 +30,7 @@ import jakarta.annotation.Nonnull;
 @IsSPIImplementation
 public final class FileFormatRegistrarDefaultSPI implements IFileFormatRegistrarSPI
 {
-  public void registerFileFormats (@Nonnull final IFileFormatRegistry aRegistry)
+  public void registerFileFormats (@NonNull final IFileFormatRegistry aRegistry)
   {
     aRegistry.registerFileFormat (new FileFormatDescriptorCSV ());
     aRegistry.registerFileFormat (new FileFormatDescriptorGIF ());
