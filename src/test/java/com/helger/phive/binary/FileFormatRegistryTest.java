@@ -35,7 +35,7 @@ import com.helger.phive.binary.impl.FileFormatDescriptorPDF;
  *
  * @author Philip Helger
  */
-public class FileFormatRegistryTest
+public final class FileFormatRegistryTest
 {
   @Test
   public void testBasic ()
