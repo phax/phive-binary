@@ -43,6 +43,9 @@ Add the following to your pom.xml to use this artifact, replacing `x.y.z` with t
 
 # News and Noteworthy
 
+v0.3.1 - work in progress
+* Removed OSGI bundling
+
 v0.3.0 - 2025-11-16
 * Updated to ph-commons 12.1.0
 * Using JSpecify annotations
