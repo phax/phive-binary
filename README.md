@@ -59,3 +59,8 @@ v0.2.0 - 2025-08-24
 v0.1.0 - 2024-01-31
 * Initial version
 * Supported formats are: CSV (no content validator), GIF, JPG, PDF, PNG, PSD, TIFF, XLS, XSLX and XML
+
+---
+
+My personal [Coding Styleguide](https://github.com/phax/meta/blob/master/CodingStyleguide.md) |
+It is appreciated if you star the GitHub project if you like it.
