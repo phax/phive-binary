@@ -57,12 +57,12 @@ public abstract class AbstractFileFormatDescriptor implements IFileFormatDescrip
       ValueEnforcer.notEmpty (sName, "Name");
       ValueEnforcer.notEmpty (aAllowedFileExtensions, "AllowedFileExtensions");
       for (final String sFileExtension : aAllowedFileExtensions)
-        ValueEnforcer.isTrue ( () -> PhiveBinaryHelper.isValidFileExtension (sFileExtension),
-                               () -> "File Extension '" + sFileExtension + "' is invalid");
+        ValueEnforcer.isTrue (() -> PhiveBinaryHelper.isValidFileExtension (sFileExtension),
+                              () -> "File Extension '" + sFileExtension + "' is invalid");
       ValueEnforcer.notEmpty (aAllowedMimeTypes, "AllowedMimeTypes");
       for (final String sMimeType : aAllowedMimeTypes)
-        ValueEnforcer.isTrue ( () -> PhiveBinaryHelper.isValidMimeType (sMimeType),
-                               () -> "MIME Type '" + sMimeType + "' is invalid");
+        ValueEnforcer.isTrue (() -> PhiveBinaryHelper.isValidMimeType (sMimeType),
+                              () -> "MIME Type '" + sMimeType + "' is invalid");
       ValueEnforcer.notNullNoNullValue (aContentValidators, "ContentValidators");
     }
 

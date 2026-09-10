@@ -33,19 +33,18 @@ import com.helger.collection.commons.ICommonsSet;
 public interface IFileFormatDescriptor extends IHasName
 {
   /**
-   * @return The short name of the file format. Defaults to the default name.
-   *         E.g. "PDF" would be the short name for "Portable File Format".
+   * @return The short name of the file format. Defaults to the default name. E.g. "PDF" would be
+   *         the short name for "Portable File Format".
    */
   @NonNull
   @Nonempty
   String getShortName ();
 
   /**
-   * @return A set with all allowed file extensions for this file format. Each
-   *         extension does NOT contain the leading dot (as in
-   *         <code>pdf</code>). Each file extension must be in all lowercase
-   *         characters. Each file extension must be assigned to exactly one
-   *         file format only. Neither <code>null</code> nor empty.
+   * @return A set with all allowed file extensions for this file format. Each extension does NOT
+   *         contain the leading dot (as in <code>pdf</code>). Each file extension must be in all
+   *         lowercase characters. Each file extension must be assigned to exactly one file format
+   *         only. Neither <code>null</code> nor empty.
    */
   @NonNull
   @Nonempty
@@ -53,10 +52,9 @@ public interface IFileFormatDescriptor extends IHasName
   ICommonsSet <String> getAllAllowedFileExtensions ();
 
   /**
-   * @return A set with all allowed MIME types for this file format. Each MIME
-   *         type must be in all lowercase characters. The MIME type must not
-   *         contain any parameters (as e.g. in <code>; charset=utf-8</code>).
-   *         Neither <code>null</code> nor empty.
+   * @return A set with all allowed MIME types for this file format. Each MIME type must be in all
+   *         lowercase characters. The MIME type must not contain any parameters (as e.g. in
+   *         <code>; charset=utf-8</code>). Neither <code>null</code> nor empty.
    */
   @NonNull
   @Nonempty
@@ -64,30 +62,27 @@ public interface IFileFormatDescriptor extends IHasName
   ICommonsSet <String> getAllAllowedMimeTypes ();
 
   /**
-   * @return A map with all registered content validators for this file format.
-   *         Not all file formats support one or all detection modes. Never
-   *         <code>null</code> but maybe empty.
+   * @return A map with all registered content validators for this file format. Not all file formats
+   *         support one or all detection modes. Never <code>null</code> but maybe empty.
    */
   @NonNull
   @ReturnsMutableCopy
   ICommonsMap <EPhiveContentValidationMode, IPhiveContentValidator> getAllContentValidators ();
 
   /**
-   * Find the best matching content validator, based on the provided validation
-   * modes.
+   * Find the best matching content validator, based on the provided validation modes.
    *
    * @param aModes
-   *        The array of detection modes that are tried linearly until the first
-   *        match is found.
-   * @return <code>null</code> if no mode was provided, or this file format does
-   *         not contain a detector for the provided modes.
+   *        The array of detection modes that are tried linearly until the first match is found.
+   * @return <code>null</code> if no mode was provided, or this file format does not contain a
+   *         detector for the provided modes.
    */
   @Nullable
   IPhiveContentValidator findContentValidator (@Nullable EPhiveContentValidationMode... aModes);
 
   /**
-   * @return The first provided content validator, with speed prioritized over
-   *         accuracy. May be <code>null</code>.
+   * @return The first provided content validator, with speed prioritized over accuracy. May be
+   *         <code>null</code>.
    */
   @Nullable
   default IPhiveContentValidator getContentValidatorFavourSpeed ()
@@ -96,8 +91,8 @@ public interface IFileFormatDescriptor extends IHasName
   }
 
   /**
-   * @return The first provided content validator, with accuracy prioritized
-   *         over speed. May be <code>null</code>.
+   * @return The first provided content validator, with accuracy prioritized over speed. May be
+   *         <code>null</code>.
    */
   @Nullable
   default IPhiveContentValidator getContentValidatorFavourAccuracy ()

@@ -31,15 +31,14 @@ import com.helger.base.lang.EnumHelper;
 public enum EPhiveContentValidationMode implements IHasID <String>
 {
   /**
-   * The file format is detected based on the first n bytes of the content. This
-   * is usually a very efficient way of checking but has smaller accuracy.
+   * The file format is detected based on the first n bytes of the content. This is usually a very
+   * efficient way of checking but has smaller accuracy.
    */
   LEADING_BYTES ("leading-bytes"),
 
   /**
-   * The file format is detected by doing a full parse of the document to verify
-   * its correctness. This is usually more time consuming then
-   * {@link #LEADING_BYTES} but also finds more errors.
+   * The file format is detected by doing a full parse of the document to verify its correctness.
+   * This is usually more time consuming then {@link #LEADING_BYTES} but also finds more errors.
    */
   FULL_PARSE ("full-parse");
 

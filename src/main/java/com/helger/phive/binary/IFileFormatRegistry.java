@@ -32,21 +32,20 @@ import com.helger.mime.IMimeType;
 public interface IFileFormatRegistry
 {
   /**
-   * Register a new file format descriptor into the registry. Implementations
-   * must check the uniqueness of file extensions and MIME types.
+   * Register a new file format descriptor into the registry. Implementations must check the
+   * uniqueness of file extensions and MIME types.
    *
    * @param aDescriptor
    *        The descriptor to be registered. May not be <code>null</code>.
-   * @return {@link ESuccess#SUCCESS} in case the new file format was
-   *         registered, {@link ESuccess#FAILURE} if not. Never
-   *         <code>null</code>.
+   * @return {@link ESuccess#SUCCESS} in case the new file format was registered,
+   *         {@link ESuccess#FAILURE} if not. Never <code>null</code>.
    */
   @NonNull
   ESuccess registerFileFormat (@NonNull IFileFormatDescriptor aDescriptor);
 
   /**
-   * @return A map with all registered file format descriptors, with the file
-   *         format name as the key.
+   * @return A map with all registered file format descriptors, with the file format name as the
+   *         key.
    */
   @NonNull
   @ReturnsMutableCopy
@@ -56,8 +55,7 @@ public interface IFileFormatRegistry
    * Find the file format descriptor with the given name
    *
    * @param sName
-   *        The name of the file format descriptor to use. May be
-   *        <code>null</code>.
+   *        The name of the file format descriptor to use. May be <code>null</code>.
    * @return <code>null</code> if no such file format descriptor exists
    * @since 0.1.1
    */
@@ -68,8 +66,8 @@ public interface IFileFormatRegistry
    * Find the file format descriptor with the given file extension
    *
    * @param sFileExt
-   *        The file extension of the file format descriptor to use. Must be all
-   *        lowercase and not have a leading dot. May be <code>null</code>.
+   *        The file extension of the file format descriptor to use. Must be all lowercase and not
+   *        have a leading dot. May be <code>null</code>.
    * @return <code>null</code> if no such file format descriptor exists
    */
   @Nullable
@@ -79,8 +77,8 @@ public interface IFileFormatRegistry
    * Find the file format descriptor with the given MIME type
    *
    * @param sMimeType
-   *        The MIME type of the file format descriptor to use. Must be all
-   *        lowercase and not have any parameters. May be <code>null</code>.
+   *        The MIME type of the file format descriptor to use. Must be all lowercase and not have
+   *        any parameters. May be <code>null</code>.
    * @return <code>null</code> if no such file format descriptor exists
    */
   @Nullable
@@ -90,8 +88,7 @@ public interface IFileFormatRegistry
    * Find the file format descriptor with the given MIME type
    *
    * @param aMimeType
-   *        The MIME type of the file format descriptor to use. May be
-   *        <code>null</code>.
+   *        The MIME type of the file format descriptor to use. May be <code>null</code>.
    * @return <code>null</code> if no such file format descriptor exists
    */
   @Nullable

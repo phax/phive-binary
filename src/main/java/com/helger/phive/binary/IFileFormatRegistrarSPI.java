@@ -21,8 +21,7 @@ import org.jspecify.annotations.NonNull;
 import com.helger.annotation.style.IsSPIInterface;
 
 /**
- * SPI interface to be implemented by other modules wishing to register their
- * own file formats.
+ * SPI interface to be implemented by other modules wishing to register their own file formats.
  *
  * @author Philip Helger
  */

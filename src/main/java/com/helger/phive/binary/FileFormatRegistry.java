@@ -84,7 +84,7 @@ public class FileFormatRegistry implements IFileFormatRegistry
   {
     ValueEnforcer.notNull (aDescriptor, "Descriptor");
 
-    return m_aRWLock.writeLockedGet ( () -> {
+    return m_aRWLock.writeLockedGet (() -> {
       // 1. check name
       final String sName = aDescriptor.getName ();
       if (m_aNameMap.containsKey (sName))
@@ -129,7 +129,7 @@ public class FileFormatRegistry implements IFileFormatRegistry
   @ReturnsMutableCopy
   public final ICommonsOrderedMap <String, IFileFormatDescriptor> getAllFileFormatDescriptors ()
   {
-    return m_aRWLock.readLockedGet ( () -> m_aNameMap.getClone ());
+    return m_aRWLock.readLockedGet (() -> m_aNameMap.getClone ());
   }
 
   @Nullable
@@ -137,14 +137,14 @@ public class FileFormatRegistry implements IFileFormatRegistry
   {
     if (StringHelper.isEmpty (sName))
       return null;
-    return m_aRWLock.readLockedGet ( () -> m_aNameMap.get (sName));
+    return m_aRWLock.readLockedGet (() -> m_aNameMap.get (sName));
   }
 
   @Nullable
   public final IFileFormatDescriptor getFileFormatDescriptorByFileExtension (@Nullable final String sFileExt)
   {
     if (PhiveBinaryHelper.isValidFileExtension (sFileExt))
-      return m_aRWLock.readLockedGet ( () -> m_aFileExtMap.get (sFileExt));
+      return m_aRWLock.readLockedGet (() -> m_aFileExtMap.get (sFileExt));
     return null;
   }
 
@@ -152,19 +152,19 @@ public class FileFormatRegistry implements IFileFormatRegistry
   public final IFileFormatDescriptor getFileFormatDescriptorByMimeType (@Nullable final String sMimeType)
   {
     if (PhiveBinaryHelper.isValidMimeType (sMimeType))
-      return m_aRWLock.readLockedGet ( () -> m_aMimeTypeMap.get (sMimeType));
+      return m_aRWLock.readLockedGet (() -> m_aMimeTypeMap.get (sMimeType));
     return null;
   }
 
   @Nonnegative
   public final int getRegisteredFileFormatDescriptorCount ()
   {
-    return m_aRWLock.readLockedInt ( () -> m_aNameMap.size ());
+    return m_aRWLock.readLockedInt (() -> m_aNameMap.size ());
   }
 
   private void _reinitialize ()
   {
-    m_aRWLock.writeLocked ( () -> {
+    m_aRWLock.writeLocked (() -> {
       m_aNameMap.clear ();
       m_aFileExtMap.clear ();
       m_aMimeTypeMap.clear ();

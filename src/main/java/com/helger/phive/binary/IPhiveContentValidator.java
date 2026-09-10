@@ -33,8 +33,7 @@ public interface IPhiveContentValidator
    *
    * @param aData
    *        the data to check
-   * @return <code>true</code> if the expected content was detected,
-   *         <code>false</code> if not.
+   * @return <code>true</code> if the expected content was detected, <code>false</code> if not.
    */
   boolean isValidContent (@NonNull byte [] aData);
 }
